@@ -16,6 +16,7 @@ int main()
     int equipo1 [n];
     int equipo2 [n];
     
+
     /*
     for (i=0; i<=n; i++)
     {
