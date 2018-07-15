@@ -23,6 +23,8 @@ int main()
     int yardas;
     int oportunidad=1;
     int avance;
+    int avan;
+    int ava;
     int avanceac;
     int intercepcion;
     int patada;
@@ -32,8 +34,6 @@ int main()
     while (Q1>0)
     {   //Se esta jugando el primer cuarto
         //Presentacion actual
-        etiqueta_pos1:
-        etiqueta_pos2:
         printf("Resultado del partido: %d - %d\n",resultado_equipo1,resultado_equipo2);
         printf("\nLa posesion es del equipo %d\n",posesion);
         printf("\n%d:%d\n",(Q1/60),(Q1%60));
@@ -50,7 +50,7 @@ int main()
             printf("GOAL\n");
 
         }
-        getchar();
+        //getchar();
         if (posesion==1)
         {
             if(oportunidad==4)
@@ -61,7 +61,6 @@ int main()
                     gettimeofday(&t1, NULL);
                     srand(t1.tv_usec * t1.tv_sec);
                     goldecampo=rand()%100;
-                    //getchar();
                     if(goldecampo<77)
                     {
                         printf("El gol de campo es bueno\n");
@@ -70,7 +69,7 @@ int main()
                         yarda_actual=25;
                         yarda_apasar=35;
                         posesion=2;
-                        goto etiqueta_pos2;
+                        goto etiqueta_pos1;
                     }
                     else
                     {
@@ -79,7 +78,7 @@ int main()
                         yarda_actual = 100 - yarda_actual;
                         yarda_apasar = yarda_actual +10;
                         posesion=2;
-                        goto etiqueta_pos2;
+                        goto etiqueta_pos1;
                     }
                 }
                 else
@@ -93,7 +92,7 @@ int main()
                     }
                     yarda_apasar=yarda_actual+10;
                     posesion=2;
-                    goto etiqueta_pos2;
+                    goto etiqueta_pos1;
                 }
             }
             else
@@ -101,22 +100,48 @@ int main()
                 gettimeofday(&t1, NULL);
                 srand(t1.tv_usec * t1.tv_sec);
                 jugada=rand()%100;
-                //getchar();
-
                 if (jugada<50)
                 {
                 printf("\nPase\n");
                 gettimeofday(&t1, NULL);
                 srand(t1.tv_usec * t1.tv_sec);
                 finpase=rand()%100;
-                //getchar();
                     if(finpase<35)
                     {
                         printf("\nPase completo\n");
                         gettimeofday(&t1, NULL);
                         srand(t1.tv_usec * t1.tv_sec);
-                        avance=rand()%100;
-                        //getchar();
+                        ava=rand()%100;
+                        if(ava<10)
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avance=rand()%8-7;
+                        }
+                        if((ava>=10)&&(ava<55))
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avance=rand()%6;    
+                        }
+                        if((ava>=55)&&(ava<85))
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avance=rand()%6+5;
+                        }
+                        if((ava>=85)&&(ava<95))
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avance=rand()%21+10;    
+                        }
+                        if(ava>=95)
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avance=rand()%71+30;    
+                        }
                         if((yarda_actual+avance)>=yarda_apasar)
                         {
                             printf("\nPase de %d yardas\n",avance);
@@ -147,7 +172,7 @@ int main()
                     posesion=2;
                     yarda_actual = 100-yarda_actual;
                     yarda_apasar = yarda_actual +10;
-                    goto etiqueta_pos2;
+                    goto etiqueta_pos1;
                     }
                     if ((finpase>=87)&&(finpase<94))
                     {
@@ -162,7 +187,7 @@ int main()
                     posesion=2;
                     yarda_actual=100-yarda_actual;
                     yarda_apasar=yarda_actual +10;
-                    goto etiqueta_pos2;
+                    goto etiqueta_pos1;
                     }
                     if(yarda_actual>=100)
                     {
@@ -182,7 +207,7 @@ int main()
                         yarda_actual=25;
                         yarda_apasar=35;
                         posesion=2;
-                        goto etiqueta_pos2;
+                        goto etiqueta_pos1;
                     }
                 }
                 else
@@ -191,14 +216,43 @@ int main()
                     gettimeofday(&t1, NULL);
                     srand(t1.tv_usec * t1.tv_sec);
                     finacarreo=rand()%100;
-                    //getchar();
                     if(finacarreo<90)
                     {
                         printf("\nAcarreo exitoso\n");
                         gettimeofday(&t1, NULL);
                         srand(t1.tv_usec * t1.tv_sec);
-                        avanceac=rand()%100;
-                        //getchar();
+                        avan=rand()%100;
+                        if(avan<10)
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avanceac=rand()%8-7;
+                        }
+                        if((avan>=10)&&(avan<55))
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avanceac=rand()%6;    
+                        }
+                        if((avan>=55)&&(avan<85))
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avanceac=rand()%6+5;
+                        }
+                        if((avan>=85)&&(avan<95))
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avanceac=rand()%21+10;    
+                        }
+                        if(avan>=95)
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avanceac=rand()%71+30;    
+                        }
+
                         if((yarda_actual+avanceac)>=yarda_apasar)
                         {
                             printf("\nAcarreo de %d yardas\n",avanceac);
@@ -230,7 +284,7 @@ int main()
                             yarda_actual=25;
                             yarda_apasar=35;
                             posesion=2;
-                            goto etiqueta_pos2;
+                            goto etiqueta_pos1;
                         }
                     }
                     else
@@ -240,7 +294,7 @@ int main()
                         posesion=2;
                         yarda_actual=100-yarda_actual;
                         yarda_apasar=yarda_actual +10;
-                        goto etiqueta_pos2;
+                        goto etiqueta_pos1;
                     }
                 }
             }
@@ -256,7 +310,6 @@ int main()
                     gettimeofday(&t1, NULL);
                     srand(t1.tv_usec * t1.tv_sec);
                     goldecampo=rand()%100;
-                    //getchar();
                     if(goldecampo<77)
                     {
                         printf("\nEl gol de campo es bueno\n");
@@ -296,21 +349,49 @@ int main()
                 gettimeofday(&t1, NULL);
                 srand(t1.tv_usec * t1.tv_sec);
                 jugada=rand()%100;
-                //getchar();
                 if (jugada<50)
                 {
                     printf("\nPase\n");
                     gettimeofday(&t1, NULL);
                     srand(t1.tv_usec * t1.tv_sec);
                     finpase=rand()%100;
-                    //getchar();
+
                     if(finpase<35)
                     {
                         printf("\nPase completo\n");
                         gettimeofday(&t1, NULL);
                         srand(t1.tv_usec * t1.tv_sec);
-                        avance=rand()%100;
-                        //getchar();
+                        ava=rand()%100;
+                        if(ava<10)
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avance=rand()%8-7;
+                        }
+                        if((ava>=10)&&(ava<55))
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avance=rand()%6;    
+                        }
+                        if((ava>=55)&&(ava<85))
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avance=rand()%6+5;
+                        }
+                        if((ava>=85)&&(ava<95))
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avance=rand()%21+10;    
+                        }
+                        if(ava>=95)
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avance=rand()%71+30;    
+                        }    
                         if((yarda_actual+avance)>=yarda_apasar)
                         {
                             printf("\nPase de %d yardas\n",avance);
@@ -385,14 +466,44 @@ int main()
                     gettimeofday(&t1, NULL);
                     srand(t1.tv_usec * t1.tv_sec);
                     finacarreo=rand()%100;
-                    //getchar();
+
                     if(finacarreo<90)
                     {
                         printf("\nAcarreo exitoso\n");
                         gettimeofday(&t1, NULL);
                         srand(t1.tv_usec * t1.tv_sec);
-                        avanceac=rand()%100;
-                        //getchar();
+                        avan=rand()%100;
+    
+                        if(avan<10)
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avanceac=rand()%8-7;
+                        }
+                        if((avan>=10)&&(avan<55))
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avanceac=rand()%6;    
+                        }
+                        if((avan>=55)&&(avan<85))
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avanceac=rand()%6+5;
+                        }
+                        if((avan>=85)&&(avan<95))
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avanceac=rand()%21+10;    
+                        }
+                        if(avan>=95)
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avanceac=rand()%71+30;    
+                        }
                         if((yarda_actual+avanceac)>=yarda_apasar)
                         {
                             printf("\nAcarreo de %d yardas\n",avanceac);
@@ -441,6 +552,7 @@ int main()
                 }
             }
         }
+    etiqueta_pos1:
     Q1=Q1-30;
     }
 
@@ -450,8 +562,6 @@ int main()
 
     while (Q2>0)
     {   //Se esta jugando el segundo cuarto
-        etiqueta2_pos1:
-        etiqueta2_pos2:
         printf("Resultado del partido: %d - %d\n",resultado_equipo1,resultado_equipo2);
         printf("\nLa posesion es del equipo %d\n",posesion);
         printf("\n%d:%d\n",(Q2/60),(Q2%60));
@@ -468,7 +578,7 @@ int main()
             printf("GOAL\n");
 
         }
-        getchar();
+        //getchar();
         if (posesion==1)
         {
             if(oportunidad==4)
@@ -479,7 +589,7 @@ int main()
                     gettimeofday(&t1, NULL);
                     srand(t1.tv_usec * t1.tv_sec);
                     goldecampo=rand()%100;
-                    //getchar();
+
                     if(goldecampo<77)
                     {
                         printf("El gol de campo es bueno\n");
@@ -488,7 +598,7 @@ int main()
                         yarda_actual=25;
                         yarda_apasar=35;
                         posesion=2;
-                        goto etiqueta2_pos2;
+                        goto etiqueta2_pos1;
                     }
                     else
                     {
@@ -497,7 +607,7 @@ int main()
                         yarda_actual = 100 - yarda_actual;
                         yarda_apasar = yarda_actual +10;
                         posesion=2;
-                        goto etiqueta2_pos2;
+                        goto etiqueta2_pos1;
                     }
                 }
                 else
@@ -511,7 +621,7 @@ int main()
                     }
                     yarda_apasar=yarda_actual+10;
                     posesion=2;
-                    goto etiqueta2_pos2;
+                    goto etiqueta2_pos1;
                 }
             }
             else
@@ -519,7 +629,6 @@ int main()
                 gettimeofday(&t1, NULL);
                 srand(t1.tv_usec * t1.tv_sec);
                 jugada=rand()%100;
-                //getchar();
 
                 if (jugada<50)
                 {
@@ -527,14 +636,42 @@ int main()
                 gettimeofday(&t1, NULL);
                 srand(t1.tv_usec * t1.tv_sec);
                 finpase=rand()%100;
-                //getchar();
                     if(finpase<35)
                     {
                         printf("\nPase completo\n");
                         gettimeofday(&t1, NULL);
                         srand(t1.tv_usec * t1.tv_sec);
-                        avance=rand()%100;
-                        //getchar();
+                        ava=rand()%100;
+                        if(ava<10)
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avance=rand()%8-7;
+                        }
+                        if((ava>=10)&&(ava<55))
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avance=rand()%6;    
+                        }
+                        if((ava>=55)&&(ava<85))
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avance=rand()%6+5;
+                        }
+                        if((ava>=85)&&(ava<95))
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avance=rand()%21+10;    
+                        }
+                        if(ava>=95)
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avance=rand()%71+30;    
+                        }
                         if((yarda_actual+avance)>=yarda_apasar)
                         {
                             printf("\nPase de %d yardas\n",avance);
@@ -565,7 +702,7 @@ int main()
                     posesion=2;
                     yarda_actual = 100-yarda_actual;
                     yarda_apasar = yarda_actual +10;
-                    goto etiqueta2_pos2;
+                    goto etiqueta2_pos1;
                     }
                     if ((finpase>=87)&&(finpase<94))
                     {
@@ -580,7 +717,7 @@ int main()
                     posesion=2;
                     yarda_actual=100-yarda_actual;
                     yarda_apasar=yarda_actual +10;
-                    goto etiqueta2_pos2;
+                    goto etiqueta2_pos1;
                     }
                     if(yarda_actual>=100)
                     {
@@ -600,7 +737,7 @@ int main()
                         yarda_actual=25;
                         yarda_apasar=35;
                         posesion=2;
-                        goto etiqueta2_pos2;
+                        goto etiqueta2_pos1;
                     }
                 }
                 else
@@ -609,14 +746,44 @@ int main()
                     gettimeofday(&t1, NULL);
                     srand(t1.tv_usec * t1.tv_sec);
                     finacarreo=rand()%100;
-                    //getchar();
+
                     if(finacarreo<90)
                     {
                         printf("\nAcarreo exitoso\n");
                         gettimeofday(&t1, NULL);
                         srand(t1.tv_usec * t1.tv_sec);
-                        avanceac=rand()%100;
-                        //getchar();
+                        avan=rand()%100;
+    
+                        if(avan<10)
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avanceac=rand()%8-7;
+                        }
+                        if((avan>=10)&&(avan<55))
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avanceac=rand()%6;    
+                        }
+                        if((avan>=55)&&(avan<85))
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avanceac=rand()%6+5;
+                        }
+                        if((avan>=85)&&(avan<95))
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avanceac=rand()%21+10;    
+                        }
+                        if(avan>=95)
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avanceac=rand()%71+30;    
+                        }                        
                         if((yarda_actual+avanceac)>=yarda_apasar)
                         {
                             printf("\nAcarreo de %d yardas\n",avanceac);
@@ -648,7 +815,7 @@ int main()
                             yarda_actual=25;
                             yarda_apasar=35;
                             posesion=2;
-                            goto etiqueta2_pos2;
+                            goto etiqueta2_pos1;
                         }
                     }
                     else
@@ -658,7 +825,7 @@ int main()
                         posesion=2;
                         yarda_actual=100-yarda_actual;
                         yarda_apasar=yarda_actual +10;
-                        goto etiqueta2_pos2;
+                        goto etiqueta2_pos1;
                     }
                 }
             }
@@ -674,7 +841,7 @@ int main()
                     gettimeofday(&t1, NULL);
                     srand(t1.tv_usec * t1.tv_sec);
                     goldecampo=rand()%100;
-                    //getchar();
+
                     if(goldecampo<77)
                     {
                         printf("\nEl gol de campo es bueno\n");
@@ -714,21 +881,49 @@ int main()
                 gettimeofday(&t1, NULL);
                 srand(t1.tv_usec * t1.tv_sec);
                 jugada=rand()%100;
-                //getchar();
                 if (jugada<50)
                 {
                     printf("\nPase\n");
                     gettimeofday(&t1, NULL);
                     srand(t1.tv_usec * t1.tv_sec);
                     finpase=rand()%100;
-                    //getchar();
+
                     if(finpase<35)
                     {
                         printf("\nPase completo\n");
                         gettimeofday(&t1, NULL);
                         srand(t1.tv_usec * t1.tv_sec);
-                        avance=rand()%100;
-                        //getchar();
+                        ava=rand()%100;
+                        if(ava<10)
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avance=rand()%8-7;
+                        }
+                        if((ava>=10)&&(ava<55))
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avance=rand()%6;    
+                        }
+                        if((ava>=55)&&(ava<85))
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avance=rand()%6+5;
+                        }
+                        if((ava>=85)&&(ava<95))
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avance=rand()%21+10;    
+                        }
+                        if(ava>=95)
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avance=rand()%71+30;    
+                        }
                         if((yarda_actual+avance)>=yarda_apasar)
                         {
                             printf("\nPase de %d yardas\n",avance);
@@ -803,14 +998,44 @@ int main()
                     gettimeofday(&t1, NULL);
                     srand(t1.tv_usec * t1.tv_sec);
                     finacarreo=rand()%100;
-                    //getchar();
+
                     if(finacarreo<90)
                     {
                         printf("\nAcarreo exitoso\n");
                         gettimeofday(&t1, NULL);
                         srand(t1.tv_usec * t1.tv_sec);
-                        avanceac=rand()%100;
-                        //getchar();
+                        avan=rand()%100;
+    
+                        if(avan<10)
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avanceac=rand()%8-7;
+                        }
+                        if((avan>=10)&&(avan<55))
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avanceac=rand()%6;    
+                        }
+                        if((avan>=55)&&(avan<85))
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avanceac=rand()%6+5;
+                        }
+                        if((avan>=85)&&(avan<95))
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avanceac=rand()%21+10;    
+                        }
+                        if(avan>=95)
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avanceac=rand()%71+30;    
+                        }                        
                         if((yarda_actual+avanceac)>=yarda_apasar)
                         {
                             printf("\nAcarreo de %d yardas\n",avanceac);
@@ -859,6 +1084,7 @@ int main()
                 }
             }
         }
+    etiqueta2_pos1:
     Q2=Q2-30;
     }
     printf("\nFin de la primera mitad\n");
@@ -867,9 +1093,6 @@ int main()
     printf("INICIO DE LA SEGUNDA MITAD\n");
     while (Q3>0)
     {   //Se esta jugando el tercer cuarto
-        //Presentacion actual
-        etiqueta3_pos1:
-        etiqueta3_pos2:
         printf("Resultado del partido: %d - %d\n",resultado_equipo1,resultado_equipo2);
         printf("\nLa posesion es del equipo %d\n",posesion);
         printf("\n%d:%d\n",(Q3/60),(Q3%60));
@@ -886,7 +1109,7 @@ int main()
             printf("GOAL\n");
 
         }
-        getchar();
+        //getchar();
         if (posesion==1)
         {
             if(oportunidad==4)
@@ -897,7 +1120,7 @@ int main()
                     gettimeofday(&t1, NULL);
                     srand(t1.tv_usec * t1.tv_sec);
                     goldecampo=rand()%100;
-                    //getchar();
+
                     if(goldecampo<77)
                     {
                         printf("El gol de campo es bueno\n");
@@ -906,7 +1129,7 @@ int main()
                         yarda_actual=25;
                         yarda_apasar=35;
                         posesion=2;
-                        goto etiqueta3_pos2;
+                        goto etiqueta3_pos1;
                     }
                     else
                     {
@@ -915,7 +1138,7 @@ int main()
                         yarda_actual = 100 - yarda_actual;
                         yarda_apasar = yarda_actual +10;
                         posesion=2;
-                        goto etiqueta3_pos2;
+                        goto etiqueta3_pos1;
                     }
                 }
                 else
@@ -929,7 +1152,7 @@ int main()
                     }
                     yarda_apasar=yarda_actual+10;
                     posesion=2;
-                    goto etiqueta3_pos2;
+                    goto etiqueta3_pos1;
                 }
             }
             else
@@ -937,7 +1160,6 @@ int main()
                 gettimeofday(&t1, NULL);
                 srand(t1.tv_usec * t1.tv_sec);
                 jugada=rand()%100;
-                //getchar();
 
                 if (jugada<50)
                 {
@@ -945,14 +1167,42 @@ int main()
                 gettimeofday(&t1, NULL);
                 srand(t1.tv_usec * t1.tv_sec);
                 finpase=rand()%100;
-                //getchar();
                     if(finpase<35)
                     {
                         printf("\nPase completo\n");
                         gettimeofday(&t1, NULL);
                         srand(t1.tv_usec * t1.tv_sec);
-                        avance=rand()%100;
-                        //getchar();
+                        ava=rand()%100;
+                        if(ava<10)
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avance=rand()%8-7;
+                        }
+                        if((ava>=10)&&(ava<55))
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avance=rand()%6;    
+                        }
+                        if((ava>=55)&&(ava<85))
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avance=rand()%6+5;
+                        }
+                        if((ava>=85)&&(ava<95))
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avance=rand()%21+10;    
+                        }
+                        if(ava>=95)
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avance=rand()%71+30;    
+                        }
                         if((yarda_actual+avance)>=yarda_apasar)
                         {
                             printf("\nPase de %d yardas\n",avance);
@@ -983,7 +1233,7 @@ int main()
                     posesion=2;
                     yarda_actual = 100-yarda_actual;
                     yarda_apasar = yarda_actual +10;
-                    goto etiqueta3_pos2;
+                    goto etiqueta3_pos1;
                     }
                     if ((finpase>=87)&&(finpase<94))
                     {
@@ -998,7 +1248,7 @@ int main()
                     posesion=2;
                     yarda_actual=100-yarda_actual;
                     yarda_apasar=yarda_actual +10;
-                    goto etiqueta3_pos2;
+                    goto etiqueta3_pos1;
                     }
                     if(yarda_actual>=100)
                     {
@@ -1018,7 +1268,7 @@ int main()
                         yarda_actual=25;
                         yarda_apasar=35;
                         posesion=2;
-                        goto etiqueta3_pos2;
+                        goto etiqueta3_pos1;
                     }
                 }
                 else
@@ -1027,14 +1277,44 @@ int main()
                     gettimeofday(&t1, NULL);
                     srand(t1.tv_usec * t1.tv_sec);
                     finacarreo=rand()%100;
-                    //getchar();
+
                     if(finacarreo<90)
                     {
                         printf("\nAcarreo exitoso\n");
                         gettimeofday(&t1, NULL);
                         srand(t1.tv_usec * t1.tv_sec);
-                        avanceac=rand()%100;
-                        //getchar();
+                        avan=rand()%100;
+    
+                        if(avan<10)
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avanceac=rand()%8-7;
+                        }
+                        if((avan>=10)&&(avan<55))
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avanceac=rand()%6;    
+                        }
+                        if((avan>=55)&&(avan<85))
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avanceac=rand()%6+5;
+                        }
+                        if((avan>=85)&&(avan<95))
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avanceac=rand()%21+10;    
+                        }
+                        if(avan>=95)
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avanceac=rand()%71+30;    
+                        }                        
                         if((yarda_actual+avanceac)>=yarda_apasar)
                         {
                             printf("\nAcarreo de %d yardas\n",avanceac);
@@ -1066,7 +1346,7 @@ int main()
                             yarda_actual=25;
                             yarda_apasar=35;
                             posesion=2;
-                            goto etiqueta3_pos2;
+                            goto etiqueta3_pos1;
                         }
                     }
                     else
@@ -1076,7 +1356,7 @@ int main()
                         posesion=2;
                         yarda_actual=100-yarda_actual;
                         yarda_apasar=yarda_actual +10;
-                        goto etiqueta3_pos2;
+                        goto etiqueta3_pos1;
                     }
                 }
             }
@@ -1092,7 +1372,7 @@ int main()
                     gettimeofday(&t1, NULL);
                     srand(t1.tv_usec * t1.tv_sec);
                     goldecampo=rand()%100;
-                    //getchar();
+
                     if(goldecampo<77)
                     {
                         printf("\nEl gol de campo es bueno\n");
@@ -1132,21 +1412,49 @@ int main()
                 gettimeofday(&t1, NULL);
                 srand(t1.tv_usec * t1.tv_sec);
                 jugada=rand()%100;
-                //getchar();
                 if (jugada<50)
                 {
                     printf("\nPase\n");
                     gettimeofday(&t1, NULL);
                     srand(t1.tv_usec * t1.tv_sec);
                     finpase=rand()%100;
-                    //getchar();
+
                     if(finpase<35)
                     {
                         printf("\nPase completo\n");
                         gettimeofday(&t1, NULL);
                         srand(t1.tv_usec * t1.tv_sec);
-                        avance=rand()%100;
-                        //getchar();
+                        ava=rand()%100;
+                        if(ava<10)
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avance=rand()%8-7;
+                        }
+                        if((ava>=10)&&(ava<55))
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avance=rand()%6;    
+                        }
+                        if((ava>=55)&&(ava<85))
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avance=rand()%6+5;
+                        }
+                        if((ava>=85)&&(ava<95))
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avance=rand()%21+10;    
+                        }
+                        if(ava>=95)
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avance=rand()%71+30;    
+                        }
                         if((yarda_actual+avance)>=yarda_apasar)
                         {
                             printf("\nPase de %d yardas\n",avance);
@@ -1221,14 +1529,44 @@ int main()
                     gettimeofday(&t1, NULL);
                     srand(t1.tv_usec * t1.tv_sec);
                     finacarreo=rand()%100;
-                    //getchar();
+
                     if(finacarreo<90)
                     {
                         printf("\nAcarreo exitoso\n");
                         gettimeofday(&t1, NULL);
                         srand(t1.tv_usec * t1.tv_sec);
-                        avanceac=rand()%100;
-                        //getchar();
+                        avan=rand()%100;
+    
+                        if(avan<10)
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avanceac=rand()%8-7;
+                        }
+                        if((avan>=10)&&(avan<55))
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avanceac=rand()%6;    
+                        }
+                        if((avan>=55)&&(avan<85))
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avanceac=rand()%6+5;
+                        }
+                        if((avan>=85)&&(avan<95))
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avanceac=rand()%21+10;    
+                        }
+                        if(avan>=95)
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avanceac=rand()%71+30;    
+                        }
                         if((yarda_actual+avanceac)>=yarda_apasar)
                         {
                             printf("\nAcarreo de %d yardas\n",avanceac);
@@ -1277,13 +1615,12 @@ int main()
                 }
             }
         }
+    etiqueta3_pos1: 
     Q3=Q3-30;
     }
     printf("INICIO DEL CUARTO CUARTO\n");
     while (Q4>0)
     {   //Se esta jugando el cuarto cuarto
-        etiqueta4_pos1:
-        etiqueta4_pos2:
         printf("Resultado del partido: %d - %d\n",resultado_equipo1,resultado_equipo2);
         printf("\nLa posesion es del equipo %d\n",posesion);
         printf("\n%d:%d\n",(Q4/60),(Q4%60));
@@ -1300,7 +1637,7 @@ int main()
             printf("GOAL\n");
 
         }
-        getchar();
+        //getchar();
         if (posesion==1)
         {
             if(oportunidad==4)
@@ -1311,7 +1648,7 @@ int main()
                     gettimeofday(&t1, NULL);
                     srand(t1.tv_usec * t1.tv_sec);
                     goldecampo=rand()%100;
-                    //getchar();
+
                     if(goldecampo<77)
                     {
                         printf("El gol de campo es bueno\n");
@@ -1320,7 +1657,7 @@ int main()
                         yarda_actual=25;
                         yarda_apasar=35;
                         posesion=2;
-                        goto etiqueta4_pos2;
+                        goto etiqueta4_pos1;
                     }
                     else
                     {
@@ -1329,7 +1666,7 @@ int main()
                         yarda_actual = 100 - yarda_actual;
                         yarda_apasar = yarda_actual +10;
                         posesion=2;
-                        goto etiqueta4_pos2;
+                        goto etiqueta4_pos1;
                     }
                 }
                 else
@@ -1343,7 +1680,7 @@ int main()
                     }
                     yarda_apasar=yarda_actual+10;
                     posesion=2;
-                    goto etiqueta4_pos2;
+                    goto etiqueta4_pos1;
                 }
             }
             else
@@ -1351,7 +1688,6 @@ int main()
                 gettimeofday(&t1, NULL);
                 srand(t1.tv_usec * t1.tv_sec);
                 jugada=rand()%100;
-                //getchar();
 
                 if (jugada<50)
                 {
@@ -1359,14 +1695,42 @@ int main()
                 gettimeofday(&t1, NULL);
                 srand(t1.tv_usec * t1.tv_sec);
                 finpase=rand()%100;
-                //getchar();
                     if(finpase<35)
                     {
                         printf("\nPase completo\n");
                         gettimeofday(&t1, NULL);
                         srand(t1.tv_usec * t1.tv_sec);
-                        avance=rand()%100;
-                        //getchar();
+                        ava=rand()%100;
+                        if(ava<10)
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avance=rand()%8-7;
+                        }
+                        if((ava>=10)&&(ava<55))
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avance=rand()%6;    
+                        }
+                        if((ava>=55)&&(ava<85))
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avance=rand()%6+5;
+                        }
+                        if((ava>=85)&&(ava<95))
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avance=rand()%21+10;    
+                        }
+                        if(ava>=95)
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avance=rand()%71+30;    
+                        }
                         if((yarda_actual+avance)>=yarda_apasar)
                         {
                             printf("\nPase de %d yardas\n",avance);
@@ -1397,7 +1761,7 @@ int main()
                     posesion=2;
                     yarda_actual = 100-yarda_actual;
                     yarda_apasar = yarda_actual +10;
-                    goto etiqueta4_pos2;
+                    goto etiqueta4_pos1;
                     }
                     if ((finpase>=87)&&(finpase<94))
                     {
@@ -1412,7 +1776,7 @@ int main()
                     posesion=2;
                     yarda_actual=100-yarda_actual;
                     yarda_apasar=yarda_actual +10;
-                    goto etiqueta4_pos2;
+                    goto etiqueta4_pos1;
                     }
                     if(yarda_actual>=100)
                     {
@@ -1432,7 +1796,7 @@ int main()
                         yarda_actual=25;
                         yarda_apasar=35;
                         posesion=2;
-                        goto etiqueta4_pos2;
+                        goto etiqueta4_pos1;
                     }
                 }
                 else
@@ -1441,14 +1805,44 @@ int main()
                     gettimeofday(&t1, NULL);
                     srand(t1.tv_usec * t1.tv_sec);
                     finacarreo=rand()%100;
-                    //getchar();
+
                     if(finacarreo<90)
                     {
                         printf("\nAcarreo exitoso\n");
                         gettimeofday(&t1, NULL);
                         srand(t1.tv_usec * t1.tv_sec);
-                        avanceac=rand()%100;
-                        //getchar();
+                        avan=rand()%100;
+    
+                        if(avan<10)
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avanceac=rand()%8-7;
+                        }
+                        if((avan>=10)&&(avan<55))
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avanceac=rand()%6;    
+                        }
+                        if((avan>=55)&&(avan<85))
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avanceac=rand()%6+5;
+                        }
+                        if((avan>=85)&&(avan<95))
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avanceac=rand()%21+10;    
+                        }
+                        if(avan>=95)
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avanceac=rand()%71+30;    
+                        }
                         if((yarda_actual+avanceac)>=yarda_apasar)
                         {
                             printf("\nAcarreo de %d yardas\n",avanceac);
@@ -1480,7 +1874,7 @@ int main()
                             yarda_actual=25;
                             yarda_apasar=35;
                             posesion=2;
-                            goto etiqueta4_pos2;
+                            goto etiqueta4_pos1;
                         }
                     }
                     else
@@ -1490,7 +1884,7 @@ int main()
                         posesion=2;
                         yarda_actual=100-yarda_actual;
                         yarda_apasar=yarda_actual +10;
-                        goto etiqueta4_pos2;
+                        goto etiqueta4_pos1;
                     }
                 }
             }
@@ -1506,7 +1900,7 @@ int main()
                     gettimeofday(&t1, NULL);
                     srand(t1.tv_usec * t1.tv_sec);
                     goldecampo=rand()%100;
-                    //getchar();
+
                     if(goldecampo<77)
                     {
                         printf("\nEl gol de campo es bueno\n");
@@ -1546,21 +1940,49 @@ int main()
                 gettimeofday(&t1, NULL);
                 srand(t1.tv_usec * t1.tv_sec);
                 jugada=rand()%100;
-                //getchar();
                 if (jugada<50)
                 {
                     printf("\nPase\n");
                     gettimeofday(&t1, NULL);
                     srand(t1.tv_usec * t1.tv_sec);
                     finpase=rand()%100;
-                    //getchar();
+
                     if(finpase<35)
                     {
                         printf("\nPase completo\n");
                         gettimeofday(&t1, NULL);
                         srand(t1.tv_usec * t1.tv_sec);
-                        avance=rand()%100;
-                        //getchar();
+                        ava=rand()%100;
+                        if(ava<10)
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avance=rand()%8-7;
+                        }
+                        if((ava>=10)&&(ava<55))
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avance=rand()%6;    
+                        }
+                        if((ava>=55)&&(ava<85))
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avance=rand()%6+5;
+                        }
+                        if((ava>=85)&&(ava<95))
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avance=rand()%21+10;    
+                        }
+                        if(ava>=95)
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avance=rand()%71+30;    
+                        }
                         if((yarda_actual+avance)>=yarda_apasar)
                         {
                             printf("\nPase de %d yardas\n",avance);
@@ -1635,14 +2057,43 @@ int main()
                     gettimeofday(&t1, NULL);
                     srand(t1.tv_usec * t1.tv_sec);
                     finacarreo=rand()%100;
-                    //getchar();
+
                     if(finacarreo<90)
                     {
                         printf("\nAcarreo exitoso\n");
                         gettimeofday(&t1, NULL);
                         srand(t1.tv_usec * t1.tv_sec);
-                        avanceac=rand()%100;
-                        //getchar();
+                        avan=rand()%100;
+                        if(avan<10)
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avanceac=rand()%8-7;
+                        }
+                        if((avan>=10)&&(avan<55))
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avanceac=rand()%6;    
+                        }
+                        if((avan>=55)&&(avan<85))
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avanceac=rand()%6+5;
+                        }
+                        if((avan>=85)&&(avan<95))
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avanceac=rand()%21+10;    
+                        }
+                        if(avan>=95)
+                        {
+                        gettimeofday(&t1, NULL);
+                        srand(t1.tv_usec * t1.tv_sec);
+                        avanceac=rand()%71+30;    
+                        }
                         if((yarda_actual+avanceac)>=yarda_apasar)
                         {
                             printf("\nAcarreo de %d yardas\n",avanceac);
@@ -1691,6 +2142,7 @@ int main()
                 }
             }
         }
+    etiqueta4_pos1:    
     Q4=Q4-30;
     }
 
