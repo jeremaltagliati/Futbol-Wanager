@@ -13,5 +13,8 @@ int sitxovr (int ovr)
     {
     	a=rand()%4+1;
     }
+    if(ovr<70){
+        a=rand()%2;
+    }
 	return a;
 }

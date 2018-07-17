@@ -1,16 +1,16 @@
 # depslib dependency file v1.0
-1531808903 source:c:\users\admin\documents\jere\futbol manager\futbol manager\main.c
+1531859551 source:c:\users\admin\documents\jere\futbol manager\futbol manager\main.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
 	<windows.h>
 	"sitxbuenos.h"
 
-1531804097 c:\users\admin\documents\jere\futbol manager\futbol manager\sitxbuenos.h
+1531811220 c:\users\admin\documents\jere\futbol manager\futbol manager\sitxbuenos.h
 	<time.h>
 	<windows.h>
 
-1531804072 source:c:\users\admin\documents\jere\futbol manager\futbol manager\sitxbuenos.c
+1531859824 source:c:\users\admin\documents\jere\futbol manager\futbol manager\sitxbuenos.c
 	"sitxbuenos.h"
 
 1531802238 source:c:\users\admin\documents\jere\futbol manager\futbol manager\tiroslibres.c

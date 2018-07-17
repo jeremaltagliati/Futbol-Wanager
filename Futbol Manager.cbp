@@ -34,6 +34,14 @@
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="sitxbuenos.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sitxbuenos.h" />
+		<Unit filename="tiroslibres.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="tiroslibres.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
