@@ -1,6 +1,12 @@
 int ovreq1 [11] = {88,79,85,84,79,88,88,84,83,88,82}; //Francia
-char neq1 [12][20] = {"Lloris","Pavard","Umtiti","Varane","Hernandez","Kante","Pogba","Matuidi","Griezmann","Mbappe","Benzema","Francia"};
+char neq1 [12][20] = {"Lloris","Pavard","Umtiti","Varane","Hernandez","Kante","Pogba","Matuidi","Griezmann","Mbappe","Giroud","Francia"};
+int ovreq1 [11] = {73,74,75,74,76,77,78,77,76,78,79}; //Boca
+int tirolejos1[11] = {20,72,62,33,54,39,68,65,83,70,80} //Boca
+char neq1 [12][20] = {"Rossi","Jara","Goltz","Magallan","Fabra","Barrios","Gago","Perez","Pavon","Tevez","Benedetto","Boca Jrs"};
 int ovreq2 [11] = {81,81,79,80,78,87,84,78,81,82,80}; //Croacia
 char neq2 [12][20] = {"Subasic","Vrsaljko","Lovren","Vida","Strnic","Brozovic","Rakitic","Modric","Perisic","Rebic","Mandzukic","Croacia"};
 int ovreq2[11] = {69,65,67,61,62,69,65,63,63,61,70}; //Olimpo de Bahia Blanca
+int tirolejos2[11] = {12,22,28,27,34,57,46,60,59,57,66} //Olimpo
 char neq2[12][20] = {"Carranza","Villanueva","Ojeda","Ramirez","Pantaleone","Bellocq","Villarruel","Vidal","Fornari","Troyanski","Depetris","Olimpo"};
+int ovreq1 [11] = {85,84,81,90,87,86,89,90,88,85,94}; //Real Madrid
+char neq2 [12][20] = {"Navas","Carvajal","Nacho","S.Ramos","Marcelo","Casemiro","Modric","Kroos","Bale","Benzema","C.Ronaldo","Real Madrid"};

@@ -15,10 +15,10 @@ int chancegol;
 int goles1=0, goles2=0;
 int ovreq1 [11] = {88,79,85,84,79,88,88,84,83,88,82}; //Francia
 char neq1 [12][20] = {"Lloris","Pavard","Umtiti","Varane","Hernandez","Kante","Pogba","Matuidi","Griezmann","Mbappe","Giroud","Francia"};
-//int ovreq2 [11] = {81,81,79,80,78,87,84,78,81,82,80}; //Croacia
-//char neq2 [12][20] = {"Subasic","Vrsaljko","Lovren","Vida","Strnic","Brozovic","Rakitic","Modric","Perisic","Rebic","Mandzukic","Croacia"};
-int ovreq2[11] = {69,65,67,61,62,69,65,63,63,61,70}; //Olimpo de Bahia Blanca
-char neq2[12][20] = {"Carranza","Villanueva","Ojeda","Ramirez","Pantaleone","Bellocq","Villarruel","Vidal","Fornari","Troyanski","Depetris","Olimpo"};
+int ovreq2 [11] = {81,81,79,80,78,87,84,78,81,82,80}; //Croacia
+char neq2 [12][20] = {"Subasic","Vrsaljko","Lovren","Vida","Strnic","Brozovic","Rakitic","Modric","Perisic","Rebic","Mandzukic","Croacia"};
+int probapateador[25] = {1,2,3,4,5,5,6,6,6,7,7,7,8,8,8,8,9,9,9,9,10,10,10,10,10};
+int patea;
 int ovr1=0,ovr2=0;
 int defensores1,medio1,delanteros1;
 int defensores2,medio2,delanteros2;
@@ -201,7 +201,7 @@ int main()
     printf("%s sale con un %d-%d-%d\n",neq1+11,defensores1,medio1,delanteros1);
     printf("%s sale con un %d-%d-%d\n",neq2+11,defensores2,medio2,delanteros2);
     promedioOvr();
-    sitxbuenos();
+    //sitxbuenos();
 
     for(i=1;i<=defensores1;i++)
     {
@@ -251,11 +251,13 @@ int main()
     difdef2del1=ovrdel1-ovrdef2;
     printf("\nDiferencia de overall: %d\n",difovr);
     printf("Diferencia de mediocampo: %d\n",difmed);
-    printf("Diferencia delanteros (%s) y defensores (%s): %d\n", e2, e1, difdef1del2);
-    printf("Diferencia delanteros (%s) y defensores (%s): %d\n", e1, e2,difdef2del1);
+    printf("Diferencia delanteros (%s) y defensores (%s): %d\n", neq2+11, neq1+11, difdef1del2);
+    printf("Diferencia delanteros (%s) y defensores (%s): %d\n", neq1+11, neq2+11,difdef2del1);
 
     //////////////////////////////////////////////////////////LOOP RESULTADOS////////////////////////////////////////////////////
     for(j=0; j<30; j++){
+    getchar();
+    sitxbuenos();
     a=random();
     b=random();
 
@@ -287,8 +289,8 @@ int main()
     situaciones1=situaciones1+a;
     situaciones2=situaciones2+b;
 
-    printf("Situaciones acumuladas por diferencia de overall %s: %d\n",e1,a);
-    printf("Situaciones acumuladas por diferencia de overall %s: %d\n",e2,b);
+    printf("Situaciones acumuladas por diferencia de overall %s: %d\n",neq1+11,a);
+    printf("Situaciones acumuladas por diferencia de overall %s: %d\n",neq2+11,b);
 
     a=random();
     b=random();
@@ -316,30 +318,33 @@ int main()
 
     situaciones1=situaciones1+a;
     situaciones2=situaciones2+b;
-    printf("Situaciones generadas por mediocampo de %s: %d\n",e1,a);
-    printf("Situaciones generadas por mediocampo de %s: %d\n",e2,b);
+    printf("Situaciones generadas por mediocampo de %s: %d\n",neq1+11,a);
+    printf("Situaciones generadas por mediocampo de %s: %d\n",neq2+11,b);
 
 
     //printf("Situaciones acumuladas %s: %d\n",e1,situaciones1);
     //printf("Situaciones acumuladas %s: %d\n",e2,situaciones2);
     if(situaciones1 > 0)
-        claras1=random()%situaciones1;
-    printf("Situaciones claras del %s: %d\n",e1,claras1);
+        claras1=random()%(situaciones1);
+    printf("Situaciones claras de %s: %d\n",neq1+11,claras1);
     if(situaciones2 > 0)
-        claras2=random()%situaciones2;
-    printf("Situaciones claras del %s: %d\n",e2,claras2);
+        claras2=random()%(situaciones2);
+    printf("Situaciones claras de %s: %d\n",neq2+11,claras2);
     situaciones1=situaciones1-claras1;
     situaciones2=situaciones2-claras2;
-    printf("Situaciones poco claras del %s: %d\n",e1,situaciones1);
-    printf("Situaciones poco claras del %s: %d\n",e2,situaciones2);
-    getchar();
+    printf("Situaciones poco claras de %s: %d\n",neq1+11,situaciones1);
+    printf("Situaciones poco claras de %s: %d\n",neq2+11,situaciones2);
+    //getchar();
 
 
     for(i=0;i<situaciones1;i++)
     {
-        pateador=random()%5+6;
+        patea=random()%25;
+        printf("%d\n",patea);
+        pateador=probapateador[patea];
+        printf("%d\n",pateador);
         chancegol=random()%100 - (int) ovreq1[pateador]*0.2;
-        //printf("Chance gol equipo 1 (%s): %d\n", neq1+pateador, chancegol);
+        printf("Chance gol (%s): %d\n", neq1+pateador, chancegol);
         if(chancegol<100-ovreq2[0]){
             goles1++;
             printf("GOOOOOOOOOL! Para %s lo hizo %s.\n", neq1+11, neq1+pateador);
@@ -351,9 +356,12 @@ int main()
 
     for(i=0;i<claras1;i++)
     {   
-        pateador=random()%5+6;
+        patea=random()%25;
+        printf("%d\n",patea);
+        pateador=probapateador[patea];
+        printf("%d\n",pateador);
         chancegol=random()%100 - (int) ovreq1[pateador]*0.25;
-        //printf("Chance gol clara equipo 1 (%s): %d\n", neq1+pateador, chancegol);
+        printf("Chance gol clara (%s): %d\n", neq1+pateador, chancegol);
         if(chancegol<125-ovreq2[0]){
             goles1++;
             printf("GOOOOOOOOOL! Para %s lo hizo %s.\n", neq1+11, neq1+pateador);
@@ -365,9 +373,12 @@ int main()
 
     for(i=0;i<situaciones2;i++)
     {   
-        pateador=random()%5+6;
+        patea=random()%25;
+        printf("%d\n",patea);
+        pateador=probapateador[patea];
+        printf("%d\n",pateador);
         chancegol=random()%100 - (int) ovreq1[pateador]*0.2;
-        //printf("Chance gol equipo 2 (%s): %d\n", neq2+pateador, chancegol);
+        printf("Chance gol (%s): %d\n", neq2+pateador, chancegol);
         if(chancegol<100-ovreq1[0]){
             goles2++;
             printf("GOOOOOOOOOL! Para %s lo hizo %s.\n", neq2+11, neq2+pateador);
@@ -380,9 +391,12 @@ int main()
 
     for(i=0;i<claras2;i++)
     {   
-        pateador=random()%5+6;
+        patea=random()%25;
+        printf("%d\n",patea);
+        pateador=probapateador[patea];
+        printf("%d\n",pateador);
         chancegol=random()%100 - (int) ovreq1[pateador]*0.25;
-        //printf("Chance gol clara equipo 2 (%s): %d\n", neq2+pateador, chancegol);
+        printf("Chance gol clara (%s): %d\n", neq2+pateador, chancegol);
         if(chancegol<125-ovreq1[0]){
             goles2++;
             printf("GOOOOOOOOOL! Para %s lo hizo %s.\n", neq2+11, neq2+pateador);
